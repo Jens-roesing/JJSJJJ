@@ -22,13 +22,11 @@ public class GameManager : MonoBehaviour
     {
         if (instance == null)
             instance = this;
-
-        SetGameState(GameState.Menu);
     }
 
     private void Start()
     {
-        
+        SetGameState(GameState.Menu);
     }
 
     private void SetGameState(GameState newGameState)
@@ -36,7 +34,7 @@ public class GameManager : MonoBehaviour
         NewGameState.Invoke(newGameState);
     }
 
-    public GameManager GetInstance()
+    public static GameManager GetInstance()
     {
         return instance;
     }
