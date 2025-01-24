@@ -2,6 +2,11 @@ using UnityEngine;
 
 public class BubbleRaiser : MonoBehaviour
 {
+
+    public void RaiseBubbles()
+    {
+        
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
