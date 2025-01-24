@@ -6,16 +6,16 @@ public class GameManager : MonoBehaviour
     private static GameManager instance;
     public GameState State { get; private set; }
     public UnityEvent<GameState> NewGameState = new UnityEvent<GameState>();
+    public float Timer { get; private set; }
 
     public enum GameState
     {
         None = 0,
         Menu = 1,
-        GameStart = 2,
-        Playing = 3,
-        Lose = 4,
-        Win = 5,
-        Pause = 6,
+        Playing = 2,
+        Lose = 3,
+        Win = 4,
+        Pause = 5,
     }
 
     private void Awake()
@@ -35,10 +35,16 @@ public class GameManager : MonoBehaviour
         {
             SetGameState(GameState.Pause);
         }
+
+        if (State == GameState.Playing)
+        {
+            Timer += Time.deltaTime;
+        }
     }
 
     public void SetGameState(GameState newGameState)
     {
+        State = newGameState;
         NewGameState.Invoke(newGameState);
     }
 

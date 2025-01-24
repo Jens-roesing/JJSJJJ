@@ -35,7 +35,7 @@ public class Menu : MonoBehaviour
     private void StartGame()
     {
         Debug.Log("StartGame");
-        GameManager.GetInstance().SetGameState(GameManager.GameState.GameStart);
+        GameManager.GetInstance().SetGameState(GameManager.GameState.Playing);
         _container.SetActive(false);
     }
 
