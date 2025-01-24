@@ -3,6 +3,8 @@ using UnityEngine;
 public class BubbleSpawner : MonoBehaviour
 {
     [SerializeField]
+    private Transform holder;
+    [SerializeField]
     private float DistanceMod = 20.0f;
     [SerializeField]
     Bubble BubblePrefab;
@@ -18,7 +20,9 @@ public class BubbleSpawner : MonoBehaviour
                     Bubble b = Instantiate(BubblePrefab);
                     bubbleManager.Bubbles[i, j] = b;
                     b.Init(bubbleManager, new Vector2Int(i, j));
-                    b.transform.position= new Vector3(i*DistanceMod, j*DistanceMod, 0);    
+                    b.transform.parent = holder;
+                    b.transform.position = new Vector3(i * DistanceMod, j * DistanceMod, 0);
+                    b.transform.Rotate(-90,0,0);
 
                 }
 
