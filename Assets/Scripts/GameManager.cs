@@ -29,7 +29,15 @@ public class GameManager : MonoBehaviour
         SetGameState(GameState.Menu);
     }
 
-    private void SetGameState(GameState newGameState)
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SetGameState(GameState.Pause);
+        }
+    }
+
+    public void SetGameState(GameState newGameState)
     {
         NewGameState.Invoke(newGameState);
     }
