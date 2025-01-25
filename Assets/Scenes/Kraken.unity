@@ -3836,22 +3836,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1089362524}
     m_Modifications:
-    - target: {fileID: 1173091894784900604, guid: 22b16c5aed74f69408b724968af10606, type: 3}
-      propertyPath: m_fontSize
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 1173091894784900604, guid: 22b16c5aed74f69408b724968af10606, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-    - target: {fileID: 1173091894784900604, guid: 22b16c5aed74f69408b724968af10606, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-    - target: {fileID: 1173091894784900604, guid: 22b16c5aed74f69408b724968af10606, type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1738164229550103216, guid: 22b16c5aed74f69408b724968af10606, type: 3}
       propertyPath: m_Name
       value: Menu
