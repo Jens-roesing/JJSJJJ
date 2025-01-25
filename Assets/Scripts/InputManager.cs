@@ -9,9 +9,6 @@ public class InputManager : MonoBehaviour
 
     Mouse mouse;
     bool HasBeenPressed = false;
-
-    [SerializeField]
-    BubbleManager bub;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -37,7 +34,7 @@ public class InputManager : MonoBehaviour
         }
         if (HasBeenPressed && !mouse.leftButton.isPressed)
         {
-            bub.TempCheck();
+            BubbleManager.Instance.TempCheck();
             HasBeenPressed = false;
         }
 

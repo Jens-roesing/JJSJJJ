@@ -4,12 +4,9 @@ public class Bubble : MonoBehaviour
 {
     [SerializeField]
     SpriteRenderer mySprite;
-    BubbleManager ParentManager;
     private bool isChosen;
     public Vector2Int BubblePos;
-    public void Init(BubbleManager _parentManager, Vector2Int _initPos)
-    {
-        ParentManager = _parentManager;
+    public void Init(Vector2Int _initPos)   {
         BubblePos = _initPos;
 
 
@@ -27,7 +24,7 @@ public class Bubble : MonoBehaviour
     {
         if (isChosen)
             return;
-        if (ParentManager.BubbleUpdateRequest(BubblePos))
+        if (BubbleManager.Instance.BubbleUpdateRequest(BubblePos))
             ActivationHandler(true);
     }
     /// <summary>
@@ -36,7 +33,7 @@ public class Bubble : MonoBehaviour
     /// <returns></returns>
     public bool AboveCheck()
     {
-        if (ParentManager.Bubbles[BubblePos.x, BubblePos.y + 1] == null)
+        if (BubbleManager.Instance.Bubbles[BubblePos.x, BubblePos.y + 1] == null)
             return true;
         return false;
     }

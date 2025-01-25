@@ -19,6 +19,15 @@ public class BubbleManager : MonoBehaviour
 
     private List<Bubble> ActiveBubbles = new();
 
+    public static BubbleManager Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance != null)
+            DestroyImmediate(gameObject);
+            Instance = this;
+    }
+
     public void StartGame()
     {
         Bubbles = new Bubble[BubbleRows, BubbleColumns];
