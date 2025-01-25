@@ -312,11 +312,11 @@ MonoBehaviour:
   _bubbleEffects: {fileID: 8496684740610968855}
   audioClips:
   - {fileID: 8300000, guid: 5905856542f48ca4ca477daac541444e, type: 3}
-  _dingSound: {fileID: 8300000, guid: 391980e6dbd959145b80090432dc493e, type: 3}
   _bubbleClips:
-  - {fileID: 8300000, guid: 8f30ff4fb4c33a34a84334396778d1f3, type: 3}
-  - {fileID: 8300000, guid: 9c4081953d70ac84488fbb9f5eda6db7, type: 3}
-  - {fileID: 8300000, guid: 9dc9bca60a732814e98e92f35a85de1a, type: 3}
+  - {fileID: 8300000, guid: f78c9cf82dd5e69419f59eab8fffb6d2, type: 3}
+  - {fileID: 8300000, guid: 8040138285bc022468eb91e0cc8452fa, type: 3}
+  - {fileID: 8300000, guid: 4f4688f918478e849a71e07d2782ec60, type: 3}
+  bubbleDelay: 0.25
 --- !u!1 &5944244368273936611
 GameObject:
   m_ObjectHideFlags: 0
