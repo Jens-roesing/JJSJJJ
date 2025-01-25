@@ -76,7 +76,7 @@ public class EnemyHealth : MonoBehaviour
         _healthBar.fillAmount = (float)lifePoints / 100;
     }
 
-    public EnemyHealth GetInstance()
+    public static EnemyHealth GetInstance()
     {
         return instance;
     }
