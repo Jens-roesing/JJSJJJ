@@ -5,7 +5,7 @@ public class BubbleRaiser : MonoBehaviour
 {
 
     bool FullyDone = true;
-    
+    [ContextMenu("RaiseBubbles")]
     public void RaiseBubbles()
     {
         do
