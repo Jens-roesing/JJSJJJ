@@ -1,6 +1,12 @@
+using System;
 using Unity.VisualScripting;
 using UnityEngine;
-
+public enum BubbleColour
+{
+    Blue,
+    Yellow,
+    Red,
+}
 public class Bubble : MonoBehaviour
 {
     [SerializeField]
@@ -8,6 +14,7 @@ public class Bubble : MonoBehaviour
     [SerializeField]
     Camera ViewCam;
     private bool isChosen;
+    public BubbleColour bubbleColour;
     public Vector2Int BubblePos;
     public SpriteRenderer Sprite => mySprite;
     public void Init(Vector2Int _initPos, Camera p_vCam)
@@ -15,7 +22,20 @@ public class Bubble : MonoBehaviour
         BubblePos = _initPos;
 
         ViewCam = p_vCam;
-
+        int colorID = UnityEngine.Random.Range(0, Enum.GetValues(typeof(BubbleColour)).Length);
+        bubbleColour = (BubbleColour)colorID;
+        switch (bubbleColour)
+        {
+            case BubbleColour.Blue:
+                mySprite.color = Color.blue;
+                break;
+            case BubbleColour.Yellow:
+                mySprite.color = Color.yellow;
+                break;
+            case BubbleColour.Red:
+                mySprite.color = Color.red;
+                break;
+        }
 
     }
     public void ActivationHandler(bool _mode)
@@ -31,7 +51,7 @@ public class Bubble : MonoBehaviour
     {
         if (isChosen)
             return;
-        if (BubbleManager.Instance.BubbleUpdateRequest(BubblePos))
+        if (BubbleManager.Instance.BubbleUpdateRequest(BubblePos, bubbleColour))
             ActivationHandler(true);
     }
     /// <summary>
