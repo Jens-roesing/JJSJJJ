@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -5,6 +6,7 @@ public class EnemyHealth : MonoBehaviour
 {
     private const int MAX_LIFEPOINTS = 100;
     private static EnemyHealth instance;
+    [SerializeField] private TextMeshProUGUI _lifeCounter;
     [SerializeField] private GameObject _healthBarParent;
     [SerializeField] private Image _healthBar;
     [SerializeField] private bool debugMode = true;
@@ -70,6 +72,7 @@ public class EnemyHealth : MonoBehaviour
 
     private void UpdateUI()
     {
+        _lifeCounter.text = $"{lifePoints} Lifes";
         _healthBar.fillAmount = (float)lifePoints / 100;
     }
 

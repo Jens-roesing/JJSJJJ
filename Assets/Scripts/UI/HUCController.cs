@@ -1,10 +1,12 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HUCController : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _timer;
+    [SerializeField] private Image _o2Bar;
 
     void Start()
     {
