@@ -631,10 +631,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63caf274d80435052b5d202c008bfeaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ViewCam: {fileID: 1192655283}
   holder: {fileID: 474768243}
   DistanceMod: 1
   BubblePrefab: {fileID: 4782205662152244424, guid: 8832e2b0271fa8248881abb40a5aa136, type: 3}
-  bubbleManager: {fileID: 474768242}
 --- !u!114 &474768242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -884,7 +884,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cammy: {fileID: 1192655283}
-  bub: {fileID: 474768242}
 --- !u!4 &1052614008
 Transform:
   m_ObjectHideFlags: 0
@@ -2514,6 +2513,10 @@ PrefabInstance:
     - target: {fileID: 7215543033502913146, guid: e31519e99705b844eab818d88863674c, type: 3}
       propertyPath: m_Name
       value: HUD
+      objectReference: {fileID: 0}
+    - target: {fileID: 8230038429275272617, guid: e31519e99705b844eab818d88863674c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -55.69995
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

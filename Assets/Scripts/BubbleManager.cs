@@ -25,6 +25,7 @@ public class BubbleManager : MonoBehaviour
     {
         if (Instance != null)
             DestroyImmediate(gameObject);
+        else
             Instance = this;
     }
 
