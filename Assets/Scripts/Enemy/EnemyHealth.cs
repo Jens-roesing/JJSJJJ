@@ -1,15 +1,19 @@
-using System;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class EnemyHealth : MonoBehaviour
 {
     private const int MAX_LIFEPOINTS = 100;
+    private static EnemyHealth instance;
     [SerializeField] private GameObject _healthBarParent;
     [SerializeField] private Image _healthBar;
     public int lifePoints { get; private set; }
 
+    private void Awake()
+    {
+        if (instance == null)
+            instance = this;
+    }
 
     private void Start()
     {
@@ -32,14 +36,32 @@ public class EnemyHealth : MonoBehaviour
         _healthBar.fillAmount = 1;
     }
 
-    public void RemoveLifepoints(int amout)
+    /// <summary>
+    /// Removes Lifepoints, returns true when enemy has 0 lifepoints left.
+    /// </summary>
+    /// <param name="amount"></param>
+    /// <returns></returns>
+    public bool RemoveLifepoints(int amount)
     {
-        lifePoints -= amout;
+        Mathf.Clamp(lifePoints -= amount, 0, MAX_LIFEPOINTS);
+        UpdateUI();
+
+        return lifePoints <= 0;
+    }
+
+    public void AddLifepoints(int amount)
+    {
+        Mathf.Clamp(lifePoints += amount, 0, MAX_LIFEPOINTS);
         UpdateUI();
     }
 
     private void UpdateUI()
     {
         _healthBar.fillAmount = Mathf.Lerp(0, 1, lifePoints / 100);
+    }
+
+    public EnemyHealth GetInstance()
+    {
+        return instance;
     }
 }
