@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Bubble : MonoBehaviour
 {
+    [SerializeField]
+    SpriteRenderer mySprite;
     BubbleManager ParentManager;
     private bool isChosen;
     public Vector2Int BubblePos;
@@ -16,15 +18,16 @@ public class Bubble : MonoBehaviour
     {
         isChosen = _mode;
 
-                    Debug.Log("Added Bubble: " + BubblePos);
+        Debug.Log("Added Bubble: " + BubblePos);
+        mySprite.color = Color.cyan;
         //TODO: Change Colour if selected 
     }
 
     public void WasHit()
     {
-        if(isChosen)
-        return;
-        if(ParentManager.BubbleUpdateRequest(BubblePos))
+        if (isChosen)
+            return;
+        if (ParentManager.BubbleUpdateRequest(BubblePos))
             ActivationHandler(true);
     }
     /// <summary>

@@ -10,6 +10,7 @@ public class Menu : MonoBehaviour
     [SerializeField] private Button _creditsButton;
     [SerializeField] private Button _closeButton;
     [SerializeField] private GameObject _container;
+    [SerializeField] private BubbleManager _bubbleManager;
 
     private void Awake()
     {
@@ -36,6 +37,8 @@ public class Menu : MonoBehaviour
     {
         Debug.Log("StartGame");
         GameManager.GetInstance().SetGameState(GameManager.GameState.Playing);
+        _bubbleManager.StartGame();
+
         _container.SetActive(false);
     }
 

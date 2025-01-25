@@ -15,13 +15,8 @@ public class BubbleManager : MonoBehaviour
     private int BubbleColumns = 0;
     public Bubble[,] Bubbles;
 
-    private List<Bubble> ActiveBubbles = new List<Bubble>();
+    private List<Bubble> ActiveBubbles = new();
 
-
-
-
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void StartGame()
     {
         Bubbles = new Bubble[BubbleRows, BubbleColumns];

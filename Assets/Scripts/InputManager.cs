@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -20,7 +21,9 @@ public class InputManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(GameManager.GetInstance().State != GameManager.GameState.Playing)
+        return;
+
         if (mouse.leftButton.isPressed)
         {
             HasBeenPressed = true;
