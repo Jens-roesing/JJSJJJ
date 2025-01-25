@@ -39,13 +39,10 @@ public class AudioManager : MonoBehaviour
 
     private void PlayMenuMusic()
     {
-        if (_menuOpen == false)
-            return;
-
-        _menuOpen = true;
         _ingameSource.Pause();
 
-        _menuSource.Play();
+        if (!_menuSource.isPlaying)
+            _menuSource.Play();
     }
 
     private void PlayIngameMusic()
@@ -54,7 +51,9 @@ public class AudioManager : MonoBehaviour
         _menuSource.Pause();
 
         _ingameSource.clip = audioClips[(int)_musicIntensityState];
-        _ingameSource.Play();
+
+        if (!_ingameSource.isPlaying)
+            _ingameSource.Play();
     }
 
     public void SetMusicIntensity(MusicIntensity musicIntensity)
