@@ -27,6 +27,7 @@ public class BubbleManager : MonoBehaviour
     public static BubbleManager Instance { get; private set; }
     public float DistanceMod { get => distanceMod; }
     public int Columns => BubbleColumns;
+    public int SelectedBubbles => ActiveBubbles.Count;
 
     private int BloodyBubbles = 0;
 

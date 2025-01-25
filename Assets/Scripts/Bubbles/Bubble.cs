@@ -77,6 +77,7 @@ public class Bubble : MonoBehaviour
 
         Debug.Log("Added Bubble: " + BubblePos);
         mySprite.color = Color.cyan;
+        AudioManager.GetInstance().PlaySelectSound(BubbleManager.Instance.SelectedBubbles);
         //TODO: Change Colour if selected 
     }
     public void Inkify()
