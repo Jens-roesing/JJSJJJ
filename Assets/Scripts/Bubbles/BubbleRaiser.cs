@@ -13,7 +13,7 @@ public class BubbleRaiser : MonoBehaviour
             FullyDone = true;
 
             for (int j = 0; j < BubbleManager.Instance.Bubbles.GetLength(1); j++)
-                for (int i = 1; i < BubbleManager.Instance.Bubbles.GetLength(0); i++)
+                for (int i = 0; i < BubbleManager.Instance.Bubbles.GetLength(0); i++)
                 {
                     if (BubbleManager.Instance.Bubbles[i, j] == null)
                         continue;
@@ -24,8 +24,9 @@ public class BubbleRaiser : MonoBehaviour
                     BubbleManager.Instance.Bubbles[i, j + 1] = curBub;
                     BubbleManager.Instance.Bubbles[i, j] = null;
                     curBub.BubblePos.y++;
+                    //curBub.Sprite.color = Color.red;
                     //Replace with Animation Movement
-                    curBub.transform.localPosition = new Vector3(curBub.transform.localPosition.x, curBub.transform.position.y + BubbleManager.Instance.DistanceMod, curBub.transform.localPosition.z);
+                    curBub.transform.localPosition = new Vector3(curBub.transform.localPosition.x, curBub.transform.localPosition.y + BubbleManager.Instance.DistanceMod, curBub.transform.localPosition.z);
                 }
         } while (!FullyDone);
     }

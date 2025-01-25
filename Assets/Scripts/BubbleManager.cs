@@ -25,6 +25,7 @@ public class BubbleManager : MonoBehaviour
 
     public static BubbleManager Instance { get; private set; }
     public float DistanceMod { get => distanceMod;}
+    public int Columns => BubbleColumns;
 
     private void Awake()
     {

@@ -9,6 +9,7 @@ public class Bubble : MonoBehaviour
     Camera ViewCam;
     private bool isChosen;
     public Vector2Int BubblePos;
+    public SpriteRenderer Sprite => mySprite;
     public void Init(Vector2Int _initPos, Camera p_vCam)
     {
         BubblePos = _initPos;
@@ -39,9 +40,12 @@ public class Bubble : MonoBehaviour
     /// <returns></returns>
     public bool CheckAboveForEmpty()
     {
-        if (BubblePos.y >= BubbleManager.Instance.Bubbles.GetLength(1) - 1)
-            return BubbleManager.Instance.Bubbles[BubblePos.x, BubblePos.y + 1] == null;
-        return false;
+        bool raise = false;
+        raise =  BubbleManager.Instance.Bubbles[BubblePos.x, Mathf.Clamp(BubblePos.y + 1, 0, BubbleManager.Instance.Columns)] == null;
+
+        Debug.Log($"Needs Raise ({raise}): X{BubblePos.x} Y{BubblePos.y}");
+
+        return raise;
     }
     /// <summary>
     /// checks if the bubble needs to be popped and does so if yes.
@@ -56,7 +60,7 @@ public class Bubble : MonoBehaviour
     }
     public void Pop()
     {
-
+        BubbleManager.Instance.Bubbles[BubblePos.x, BubblePos.y] = null;
         Destroy(gameObject);
     }
 
