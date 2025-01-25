@@ -47,12 +47,17 @@ public class Bubble : MonoBehaviour
         //TODO: Change Colour if selected 
     }
 
-    public void WasHit()
+    public bool WasHit()
     {
         if (isChosen)
-            return;
+            return false;
         if (BubbleManager.Instance.BubbleUpdateRequest(BubblePos, bubbleColour))
+        {
             ActivationHandler(true);
+            return true;
+        }
+
+        return false;
     }
     /// <summary>
     /// Information for the BubbleRaiser to know if he needs to raise this bubble
@@ -61,7 +66,7 @@ public class Bubble : MonoBehaviour
     public bool CheckAboveForEmpty()
     {
         bool raise = false;
-        raise =  BubbleManager.Instance.Bubbles[BubblePos.x, Mathf.Clamp(BubblePos.y + 1, 0, BubbleManager.Instance.Columns)] == null;
+        raise = BubbleManager.Instance.Bubbles[BubblePos.x, Mathf.Clamp(BubblePos.y + 1, 0, BubbleManager.Instance.Columns)] == null;
 
         Debug.Log($"Needs Raise ({raise}): X{BubblePos.x} Y{BubblePos.y}");
 
@@ -75,7 +80,7 @@ public class Bubble : MonoBehaviour
     {
         if (isChosen)
             //TODO: Play Animation and have that triggers the Pop command.
-            Pop();
+            transform.GetChild(0).GetChild(0).GetComponent<Animation>().Play();
 
     }
     public void Pop()

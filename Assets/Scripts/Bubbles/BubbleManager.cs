@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
@@ -24,7 +25,7 @@ public class BubbleManager : MonoBehaviour
     private List<Bubble> ActiveBubbles = new();
 
     public static BubbleManager Instance { get; private set; }
-    public float DistanceMod { get => distanceMod;}
+    public float DistanceMod { get => distanceMod; }
     public int Columns => BubbleColumns;
 
     private void Awake()
@@ -54,7 +55,6 @@ public class BubbleManager : MonoBehaviour
             Vector2Int oldPos = ActiveBubbles.Last().BubblePos;
             if (Vector2.Distance(oldPos, bubblePos) <= 1.5f)
             {
-
                 ActiveBubbles.Add(Bubbles[bubblePos.x, bubblePos.y]);
 
                 return true;
@@ -72,20 +72,25 @@ public class BubbleManager : MonoBehaviour
         Analyzer.CalculateResults(ActiveBubbles.Count);
         for (int i = 0; i < ActiveBubbles.Count; i++)
             ActiveBubbles[i].PopCheck();
+
+        StartCoroutine(Delay());
+
+
+    }
+
+    private IEnumerator Delay()
+    {
+        yield return new WaitForSeconds(3);
+
         ActiveBubbles.Clear();
+
         RoundEndActions();
+
 
     }
     public void RoundEndActions()
     {
-        // Raiser.RaiseBubbles();
+        Raiser.RaiseBubbles();
         Spawner.FillUpBubbles(ViewCam);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
 }

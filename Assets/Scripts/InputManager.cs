@@ -7,6 +7,8 @@ public class InputManager : MonoBehaviour
     [SerializeField]
     Camera cammy;
 
+    [SerializeField]
+    LineRenderer lineRenderer;
     Mouse mouse;
     bool HasBeenPressed = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -14,7 +16,7 @@ public class InputManager : MonoBehaviour
     {
         mouse = Mouse.current;
     }
-
+    int manCounter = 0;
     // Update is called once per frame
     void Update()
     {
@@ -30,13 +32,23 @@ public class InputManager : MonoBehaviour
             if (Physics.Raycast(mousePoint, out RaycastHit HitBubble))
             {
                 if (HitBubble.transform.gameObject.TryGetComponent<Bubble>(out Bubble hitBubble))
-                    hitBubble.WasHit();
+                    if (hitBubble.WasHit())
+                    {
+                        Debug.Log("Boop");
+                        lineRenderer.positionCount++;
+                        Vector3 LRPos = hitBubble.transform.position;
+                        LRPos.z += 1f;
+                        lineRenderer.SetPosition(manCounter, LRPos);
+                        manCounter++;
+                    }
             }
         }
         if (HasBeenPressed && !mouse.leftButton.isPressed)
         {
+            lineRenderer.positionCount = 0;
             BubbleManager.Instance.TempCheck();
             HasBeenPressed = false;
+            manCounter = 0;
         }
 
     }

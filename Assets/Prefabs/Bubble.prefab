@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8143324326290041913}
   - component: {fileID: 6866958164781619045}
+  - component: {fileID: 3411184204536753440}
+  - component: {fileID: 7193215552499167193}
   m_Layer: 0
   m_Name: Circle
   m_TagString: Untagged
@@ -87,6 +89,35 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!111 &3411184204536753440
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3221645137902249009}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Animation: {fileID: 7400000, guid: eb79e2254af3d835896f291ac2642ca6, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: eb79e2254af3d835896f291ac2642ca6, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_UpdateMode: 0
+  m_CullingType: 0
+--- !u!114 &7193215552499167193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3221645137902249009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5e1814770ed0fe77a05dce77f8bb381, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6600874889848571631
 GameObject:
   m_ObjectHideFlags: 0
