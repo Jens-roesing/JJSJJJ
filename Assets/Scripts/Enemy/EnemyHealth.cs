@@ -7,7 +7,8 @@ public class EnemyHealth : MonoBehaviour
     private static EnemyHealth instance;
     [SerializeField] private GameObject _healthBarParent;
     [SerializeField] private Image _healthBar;
-    public int lifePoints { get; private set; }
+    [SerializeField] private bool debugMode = true;
+    public int lifePoints { get; private set; } = 100;
 
     private void Awake()
     {
@@ -19,6 +20,18 @@ public class EnemyHealth : MonoBehaviour
     {
         InitUI();
         GameManager.GetInstance().NewGameState.AddListener(Show);
+    }
+
+    private void Update()
+    {
+        if (debugMode)
+        {
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+                AddLifepoints(10);
+
+            if (Input.GetKeyDown(KeyCode.DownArrow))
+                RemoveLifepoints(10);
+        }
     }
 
     private void Show(GameManager.GameState state)
@@ -57,7 +70,7 @@ public class EnemyHealth : MonoBehaviour
 
     private void UpdateUI()
     {
-        _healthBar.fillAmount = Mathf.Lerp(0, 1, lifePoints / 100);
+        _healthBar.fillAmount = (float)lifePoints / 100;
     }
 
     public EnemyHealth GetInstance()
