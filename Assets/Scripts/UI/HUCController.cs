@@ -7,15 +7,25 @@ public class HUCController : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _timer;
     [SerializeField] private Image _o2Bar;
+    [SerializeField] private GameObject _container;
 
     private void Start()
     {
-        
+        GameManager.GetInstance().NewGameState.AddListener(HandleGameState);
+    }
+
+    private void HandleGameState(GameManager.GameState state)
+    {
+        if (state == GameManager.GameState.Playing)
+            _container.SetActive(true);
+
+        if (state == GameManager.GameState.Pause)
+            _container.SetActive(false);
     }
 
     private void Update()
     {
-        var ts = TimeSpan.FromSeconds(GameManager.GetInstance().Timer);
+        var ts = TimeSpan.FromSeconds(GameManager.MAX_GAMETIME - GameManager.GetInstance().Timer);
         _timer.text = string.Format("{0:00}:{1:00}", ts.TotalMinutes, ts.Seconds);
 
         UpdateO2UI();
