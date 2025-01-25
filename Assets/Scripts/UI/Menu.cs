@@ -54,6 +54,7 @@ public class Menu : MonoBehaviour
     {
         Debug.Log("PauseGame");
         _container.SetActive(true);
+        _startButton.GetComponentInChildren<TextMeshProUGUI>().text = "Resume Game";
     }
 
     public static Menu GetInstance()
