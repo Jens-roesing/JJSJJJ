@@ -649,6 +649,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Spawner: {fileID: 474768241}
   Raiser: {fileID: 474768240}
+  Analyzer: {fileID: 474768239}
   BubbleRows: 10
   BubbleColumns: 5
 --- !u!4 &474768243
