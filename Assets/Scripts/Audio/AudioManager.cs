@@ -9,7 +9,7 @@ public class AudioManager : MonoBehaviour
     private MusicIntensity _musicIntensityState;
     private bool _menuOpen;
 
-    private enum MusicIntensity
+    public enum MusicIntensity
     {
         Normal = 0,
         Heavy = 1,
@@ -55,6 +55,11 @@ public class AudioManager : MonoBehaviour
 
         _ingameSource.clip = audioClips[(int)_musicIntensityState];
         _ingameSource.Play();
+    }
+
+    public void SetMusicIntensity(MusicIntensity musicIntensity)
+    {
+        _musicIntensityState = musicIntensity;
     }
 
     public static AudioManager GetInstance()
