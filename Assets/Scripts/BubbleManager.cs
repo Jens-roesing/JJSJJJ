@@ -10,6 +10,8 @@ public class BubbleManager : MonoBehaviour
     [SerializeField]
     private BubbleRaiser Raiser;
     [SerializeField]
+    BubblePopAnalyzer Analyzer;
+    [SerializeField]
     private int BubbleRows = 0;
     [SerializeField]
     private int BubbleColumns = 0;
@@ -34,13 +36,11 @@ public class BubbleManager : MonoBehaviour
             Vector2Int oldPos = ActiveBubbles.Last().BubblePos;
             if (Vector2.Distance(oldPos, bubblePos) <= 1.5f)
             {
-
                 ActiveBubbles.Add(Bubbles[bubblePos.x, bubblePos.y]);
                 Debug.Log("Works til here count after: " + ActiveBubbles.Count);
 
                 return true;
             }
-
             return false;
         }
         ActiveBubbles.Add(Bubbles[bubblePos.x, bubblePos.y]);
@@ -50,17 +50,15 @@ public class BubbleManager : MonoBehaviour
 
     public void TempCheck()
     {
+        Analyzer.CalculateResults(ActiveBubbles.Count);
         for (int i = 0; i < ActiveBubbles.Count; i++)
-        {
             ActiveBubbles[i].PopCheck();
-        }
         ActiveBubbles.Clear();
     }
     public void RoundEndActions()
     {
         Raiser.RaiseBubbles();
         Spawner.FillUpBubbles();
-
     }
 
     // Update is called once per frame
