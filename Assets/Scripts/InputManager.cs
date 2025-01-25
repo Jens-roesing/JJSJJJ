@@ -46,7 +46,7 @@ public class InputManager : MonoBehaviour
         if (HasBeenPressed && !mouse.leftButton.isPressed)
         {
             lineRenderer.positionCount = 0;
-            BubbleManager.Instance.TempCheck();
+            BubbleManager.Instance.ResultCheck();
             HasBeenPressed = false;
             manCounter = 0;
         }
