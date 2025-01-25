@@ -28,6 +28,8 @@ public class BubbleManager : MonoBehaviour
     public float DistanceMod { get => distanceMod; }
     public int Columns => BubbleColumns;
 
+    private int BloodyBubbles = 0;
+
     private void Awake()
     {
         if (Instance != null)
@@ -44,32 +46,38 @@ public class BubbleManager : MonoBehaviour
 
     }
 
-    public bool BubbleUpdateRequest(Vector2Int bubblePos, BubbleColour colour)
+    public bool BubbleUpdateRequest(Bubble p_bubbleInQuestion)
     {
-        Debug.Log("Bubble " + bubblePos + " Requests a check");
+        // Debug.Log("Bubble " + bubblePos + " Requests a check");
         //Check if Bubble is either first or neighbour to the previous hit one.
         if (ActiveBubbles.Count != 0)
         {
-            if (ActiveBubbles.Last().bubbleColour != colour)
+            if (ActiveBubbles.Last().bubbleColour != p_bubbleInQuestion.bubbleColour)
+                return false;
+            if (p_bubbleInQuestion.BubbleModifier == BubbleMods.Inked)
                 return false;
             Vector2Int oldPos = ActiveBubbles.Last().BubblePos;
-            if (Vector2.Distance(oldPos, bubblePos) <= 1.5f)
+            if (Vector2.Distance(oldPos, p_bubbleInQuestion.BubblePos) <= 1.5f)
             {
-                ActiveBubbles.Add(Bubbles[bubblePos.x, bubblePos.y]);
+                ActiveBubbles.Add(Bubbles[p_bubbleInQuestion.BubblePos.x, p_bubbleInQuestion.BubblePos.y]);
+                if(p_bubbleInQuestion.BubbleModifier == BubbleMods.Bloody)
+                    BloodyBubbles++;
 
                 return true;
             }
             return false;
         }
 
-        ActiveBubbles.Add(Bubbles[bubblePos.x, bubblePos.y]);
-        Debug.Log("First bubble: " + bubblePos);
+        ActiveBubbles.Add(Bubbles[p_bubbleInQuestion.BubblePos.x, p_bubbleInQuestion.BubblePos.y]);
+        // Debug.Log("First bubble: " + bubblePos);
         return true;
     }
 
-    public void TempCheck()
+    public void ResultCheck()
     {
-        Analyzer.CalculateResults(ActiveBubbles.Count);
+
+        Analyzer.CalculateResults(ActiveBubbles.Count, BloodyBubbles);
+        BloodyBubbles = 0;
         for (int i = 0; i < ActiveBubbles.Count; i++)
             ActiveBubbles[i].PopCheck();
 

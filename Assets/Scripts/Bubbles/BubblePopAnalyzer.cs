@@ -1,3 +1,4 @@
+using Unity.Mathematics;
 using UnityEngine;
 
 public class BubblePopAnalyzer : MonoBehaviour
@@ -5,25 +6,20 @@ public class BubblePopAnalyzer : MonoBehaviour
 
 
 
-    public void CalculateResults(int p_bubblesPopped)
+    public void CalculateResults(int p_bubblesPopped, int p_bloodyBubbles)
     {
         int damage = p_bubblesPopped;
-        if (EnemyHealth.GetInstance())
+        damage += p_bloodyBubbles * 10;
+     
+     
+     
+     
+     
+        if (EnemyHealth.GetInstance())     
             if (EnemyHealth.GetInstance().RemoveLifepoints(damage))
             {
                 Debug.Log("You Won, guy.");
             }
-
-    }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
 
     }
 }

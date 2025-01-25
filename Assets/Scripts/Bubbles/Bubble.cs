@@ -7,8 +7,19 @@ public enum BubbleColour
     Yellow,
     Red,
 }
+
+public enum BubbleMods
+{
+    None,
+    Bloody,
+    TimeBubble,
+    Paralyzing,
+    Inked,
+
+}
 public class Bubble : MonoBehaviour
 {
+    private const int MODRARITY = 10;
     [SerializeField]
     SpriteRenderer mySprite;
     [SerializeField]
@@ -17,6 +28,7 @@ public class Bubble : MonoBehaviour
     public BubbleColour bubbleColour;
     public Vector2Int BubblePos;
     public SpriteRenderer Sprite => mySprite;
+    public BubbleMods BubbleModifier;
     public void Init(Vector2Int _initPos, Camera p_vCam)
     {
         BubblePos = _initPos;
@@ -36,6 +48,27 @@ public class Bubble : MonoBehaviour
                 mySprite.color = Color.red;
                 break;
         }
+        uint ModId = (uint)UnityEngine.Random.Range(0, Enum.GetValues(typeof(BubbleMods)).Length + MODRARITY);
+        BubbleModifier = (BubbleMods)ModId - (MODRARITY + 1);
+        if (BubbleModifier != BubbleMods.None)
+        {
+            SpriteRenderer plaque = Instantiate(new GameObject()).AddComponent<SpriteRenderer>();
+            plaque.transform.SetParent(transform.GetChild(0).GetChild(0));
+            switch (BubbleModifier)
+            {
+                case BubbleMods.Bloody:
+                
+                break;
+                case BubbleMods.TimeBubble:
+                break;
+                case BubbleMods.Paralyzing:
+                break;
+
+            }
+
+        }
+
+
 
     }
     public void ActivationHandler(bool _mode)
@@ -46,12 +79,16 @@ public class Bubble : MonoBehaviour
         mySprite.color = Color.cyan;
         //TODO: Change Colour if selected 
     }
-
+    public void Inkify()
+    {
+        BubbleModifier = BubbleMods.Inked;
+        mySprite.color = Color.black;
+    }
     public bool WasHit()
     {
         if (isChosen)
             return false;
-        if (BubbleManager.Instance.BubbleUpdateRequest(BubblePos, bubbleColour))
+        if (BubbleManager.Instance.BubbleUpdateRequest(this))
         {
             ActivationHandler(true);
             return true;
