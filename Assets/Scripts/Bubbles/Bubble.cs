@@ -39,9 +39,8 @@ public class Bubble : MonoBehaviour
     /// <returns></returns>
     public bool AboveCheck()
     {
-        if (BubbleManager.Instance.Bubbles[BubblePos.x, BubblePos.y + 1] == null)
-            return true;
-        return false;
+        Debug.Log("" + BubblePos + " " +(BubbleManager.Instance.Bubbles.GetLength(1)-1) );
+        return BubbleManager.Instance.Bubbles[BubblePos.x, BubblePos.y + 1] == null && BubblePos.y < BubbleManager.Instance.Bubbles.GetLength(1)-1;
     }
     /// <summary>
     /// checks if the bubble needs to be popped and does so if yes.
