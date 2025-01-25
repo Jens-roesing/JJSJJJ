@@ -9,20 +9,19 @@ public class BubbleSpawner : MonoBehaviour
     [SerializeField]
     Bubble BubblePrefab;
     [SerializeField]
-    BubbleManager bubbleManager;
     public void FillUpBubbles()
     {
-        for (int j = 0; j < bubbleManager.Bubbles.GetLength(1); j++)
-            for (int i = 0; i < bubbleManager.Bubbles.GetLength(0); i++)
+        for (int j = 0; j < BubbleManager.Instance.Bubbles.GetLength(1); j++)
+            for (int i = 0; i < BubbleManager.Instance.Bubbles.GetLength(0); i++)
             {
-                if (bubbleManager.Bubbles[i, j] == null)
+                if (BubbleManager.Instance.Bubbles[i, j] == null)
                 {
                     Bubble b = Instantiate(BubblePrefab, holder);
-                    bubbleManager.Bubbles[i, j] = b;
-                    b.Init(bubbleManager, new Vector2Int(i, j));
+                    BubbleManager.Instance.Bubbles[i, j] = b;
+                    b.Init(new Vector2Int(i, j));
                     b.transform.localRotation = transform.rotation;
                     b.transform.localPosition = new Vector3(i * DistanceMod, j * DistanceMod, 0);
-                    b.transform.Rotate(-90,0,0);
+                    b.transform.LookAt(Camera.current.transform.position, Vector3.up);
 
                 }
 
