@@ -595,14 +595,6 @@ PrefabInstance:
       value: Chestfbx
       objectReference: {fileID: 0}
     - target: {fileID: 4373900142292134571, guid: 6a88103a63ecf6845816694973f8e5dc, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.7967101
-      objectReference: {fileID: 0}
-    - target: {fileID: 4373900142292134571, guid: 6a88103a63ecf6845816694973f8e5dc, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.79671013
-      objectReference: {fileID: 0}
-    - target: {fileID: 4373900142292134571, guid: 6a88103a63ecf6845816694973f8e5dc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 174.8028
       objectReference: {fileID: 0}
