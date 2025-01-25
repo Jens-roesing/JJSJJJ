@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class BubbleManager : MonoBehaviour
 {
-
     [SerializeField]
     Camera ViewCam;
     [SerializeField]
@@ -14,15 +13,18 @@ public class BubbleManager : MonoBehaviour
     private BubbleRaiser Raiser;
     [SerializeField]
     BubblePopAnalyzer Analyzer;
-    [SerializeField]
-    private int BubbleRows = 0;
-    [SerializeField]
-    private int BubbleColumns = 0;
+    
+    [SerializeField]    private int BubbleRows = 0;
+    [SerializeField]    private int BubbleColumns = 0;
+    [SerializeField] private float distanceMod = 1.0f;
+
+
     public Bubble[,] Bubbles;
 
     private List<Bubble> ActiveBubbles = new();
 
     public static BubbleManager Instance { get; private set; }
+    public float DistanceMod { get => distanceMod;}
 
     private void Awake()
     {
@@ -67,11 +69,12 @@ public class BubbleManager : MonoBehaviour
         for (int i = 0; i < ActiveBubbles.Count; i++)
             ActiveBubbles[i].PopCheck();
         ActiveBubbles.Clear();
+
     }
     public void RoundEndActions()
     {
         Raiser.RaiseBubbles();
-        Spawner.FillUpBubbles(ViewCam);
+        // Spawner.FillUpBubbles(ViewCam);
     }
 
     // Update is called once per frame

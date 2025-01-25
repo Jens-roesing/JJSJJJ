@@ -5,8 +5,6 @@ public class BubbleSpawner : MonoBehaviour
     [SerializeField]
     private Transform holder;
     [SerializeField]
-    private float DistanceMod = 1.0f;
-    [SerializeField]
     Bubble BubblePrefab;
     public void FillUpBubbles(Camera viewCam)
     {
@@ -19,7 +17,7 @@ public class BubbleSpawner : MonoBehaviour
                     BubbleManager.Instance.Bubbles[i, j] = b;
                     b.Init(new Vector2Int(i, j), viewCam);
                     b.transform.localRotation = transform.rotation;
-                    b.transform.localPosition = new Vector3(i * DistanceMod, j * DistanceMod, 0);
+                    b.transform.localPosition = new Vector3(i * BubbleManager.Instance.DistanceMod, j * BubbleManager.Instance.DistanceMod, 0);
 
                 }
 
