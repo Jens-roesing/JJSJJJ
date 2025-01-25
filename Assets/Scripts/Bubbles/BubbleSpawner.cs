@@ -5,7 +5,7 @@ public class BubbleSpawner : MonoBehaviour
     [SerializeField]
     private Transform holder;
     [SerializeField]
-    private float DistanceMod = 20.0f;
+    private float DistanceMod = 1.0f;
     [SerializeField]
     Bubble BubblePrefab;
     [SerializeField]
@@ -17,11 +17,11 @@ public class BubbleSpawner : MonoBehaviour
             {
                 if (bubbleManager.Bubbles[i, j] == null)
                 {
-                    Bubble b = Instantiate(BubblePrefab);
+                    Bubble b = Instantiate(BubblePrefab, holder);
                     bubbleManager.Bubbles[i, j] = b;
                     b.Init(bubbleManager, new Vector2Int(i, j));
-                    b.transform.parent = holder;
-                    b.transform.position = new Vector3(i * DistanceMod, j * DistanceMod, 0);
+                    b.transform.localRotation = transform.rotation;
+                    b.transform.localPosition = new Vector3(i * DistanceMod, j * DistanceMod, 0);
                     b.transform.Rotate(-90,0,0);
 
                 }
