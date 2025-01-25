@@ -1,13 +1,19 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Bubble : MonoBehaviour
 {
     [SerializeField]
     SpriteRenderer mySprite;
+    [SerializeField]
+    Camera ViewCam;
     private bool isChosen;
     public Vector2Int BubblePos;
-    public void Init(Vector2Int _initPos)   {
+    public void Init(Vector2Int _initPos, Camera p_vCam)
+    {
         BubblePos = _initPos;
+
+        ViewCam = p_vCam;
 
 
     }
@@ -40,10 +46,23 @@ public class Bubble : MonoBehaviour
     /// <summary>
     /// checks if the bubble needs to be popped and does so if yes.
     /// </summary>
+    /// 
     public void PopCheck()
     {
         if (isChosen)
-            //TODO: Play Animation and have that trigger the 
-            Destroy(gameObject);
+            //TODO: Play Animation and have that triggers the Pop command.
+            Pop();
+
+    }
+    public void Pop()
+    {
+
+        Destroy(gameObject);
+    }
+
+    private void Update()
+    {
+
+        transform.LookAt(ViewCam.transform.position, Vector3.up);
     }
 }

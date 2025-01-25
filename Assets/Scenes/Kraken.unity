@@ -709,7 +709,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63caf274d80435052b5d202c008bfeaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ViewCam: {fileID: 1192655283}
   holder: {fileID: 474768243}
   DistanceMod: 1
   BubblePrefab: {fileID: 4782205662152244424, guid: 8832e2b0271fa8248881abb40a5aa136, type: 3}
@@ -725,6 +724,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3795cf241902c5ef3a12fe4e5d2f4467, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ViewCam: {fileID: 1192655283}
   Spawner: {fileID: 474768241}
   Raiser: {fileID: 474768240}
   Analyzer: {fileID: 474768239}
