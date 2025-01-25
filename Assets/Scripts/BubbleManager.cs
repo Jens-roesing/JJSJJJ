@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class BubbleManager : MonoBehaviour
 {
+
+    [SerializeField]
+    Camera ViewCam;
     [SerializeField]
     private BubbleSpawner Spawner;
     [SerializeField]
@@ -32,7 +35,7 @@ public class BubbleManager : MonoBehaviour
     public void StartGame()
     {
         Bubbles = new Bubble[BubbleRows, BubbleColumns];
-        Spawner.FillUpBubbles();
+        Spawner.FillUpBubbles(ViewCam);
 
     }
 
@@ -68,7 +71,7 @@ public class BubbleManager : MonoBehaviour
     public void RoundEndActions()
     {
         Raiser.RaiseBubbles();
-        Spawner.FillUpBubbles();
+        Spawner.FillUpBubbles(ViewCam);
     }
 
     // Update is called once per frame
