@@ -3,12 +3,13 @@ using UnityEngine;
 public class BubbleSpawner : MonoBehaviour
 {
     [SerializeField]
+    Camera ViewCam;
+    [SerializeField]
     private Transform holder;
     [SerializeField]
     private float DistanceMod = 1.0f;
     [SerializeField]
     Bubble BubblePrefab;
-    [SerializeField]
     public void FillUpBubbles()
     {
         for (int j = 0; j < BubbleManager.Instance.Bubbles.GetLength(1); j++)
@@ -21,7 +22,7 @@ public class BubbleSpawner : MonoBehaviour
                     b.Init(new Vector2Int(i, j));
                     b.transform.localRotation = transform.rotation;
                     b.transform.localPosition = new Vector3(i * DistanceMod, j * DistanceMod, 0);
-                    b.transform.LookAt(Camera.current.transform.position, Vector3.up);
+                    b.transform.LookAt(ViewCam.transform.position, Vector3.up);
 
                 }
 
