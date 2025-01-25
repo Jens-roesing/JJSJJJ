@@ -37,10 +37,11 @@ public class Bubble : MonoBehaviour
     /// Information for the BubbleRaiser to know if he needs to raise this bubble
     /// </summary>
     /// <returns></returns>
-    public bool AboveCheck()
+    public bool CheckAboveForEmpty()
     {
-        Debug.Log("" + BubblePos + " " +(BubbleManager.Instance.Bubbles.GetLength(1)-1) );
-        return BubbleManager.Instance.Bubbles[BubblePos.x, BubblePos.y + 1] == null && BubblePos.y < BubbleManager.Instance.Bubbles.GetLength(1)-1;
+        if (BubblePos.y >= BubbleManager.Instance.Bubbles.GetLength(1) - 1)
+            return BubbleManager.Instance.Bubbles[BubblePos.x, BubblePos.y + 1] == null;
+        return false;
     }
     /// <summary>
     /// checks if the bubble needs to be popped and does so if yes.

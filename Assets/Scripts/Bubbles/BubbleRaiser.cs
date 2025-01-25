@@ -17,7 +17,7 @@ public class BubbleRaiser : MonoBehaviour
                 {
                     if (BubbleManager.Instance.Bubbles[i, j] == null)
                         continue;
-                    if (BubbleManager.Instance.Bubbles[i, j].AboveCheck())
+                    if (!BubbleManager.Instance.Bubbles[i, j].CheckAboveForEmpty())
                         continue;
                     FullyDone = false;
                     Bubble curBub = BubbleManager.Instance.Bubbles[i, j];

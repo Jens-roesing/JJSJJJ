@@ -34,6 +34,7 @@ public class BubbleManager : MonoBehaviour
             Instance = this;
     }
 
+    [ContextMenu("Start Game")]
     public void StartGame()
     {
         Bubbles = new Bubble[BubbleRows, BubbleColumns];
