@@ -4,7 +4,7 @@ public class Bubble : MonoBehaviour
 {
     BubbleManager ParentManager;
     private bool isChosen;
-    private Vector2Int BubblePos;
+    public Vector2Int BubblePos;
     public void Init(BubbleManager _parentManager, Vector2Int _initPos)
     {
         ParentManager = _parentManager;
@@ -15,7 +15,17 @@ public class Bubble : MonoBehaviour
     public void ActivationHandler(bool _mode)
     {
         isChosen = _mode;
+
+                    Debug.Log("Added Bubble: " + BubblePos);
         //TODO: Change Colour if selected 
+    }
+
+    public void WasHit()
+    {
+        if(isChosen)
+        return;
+        if(ParentManager.BubbleUpdateRequest(BubblePos))
+            ActivationHandler(true);
     }
     /// <summary>
     /// Information for the BubbleRaiser to know if he needs to raise this bubble
