@@ -30,6 +30,10 @@ public class Bubble : MonoBehaviour
     SpriteRenderer mySprite;
     [SerializeField]
     Camera ViewCam;
+    [SerializeField]
+    private Sprite[] plaqueSprites;
+
+
     private bool isChosen;
     [SerializeField] private Sprite[] _popSprites;
     public BubbleColour bubbleColour;
@@ -59,15 +63,18 @@ public class Bubble : MonoBehaviour
         BubbleModifier = (BubbleMods)ModId - (MODRARITY + 1);
         if (BubbleModifier != BubbleMods.None)
         {
-            
+
             switch (BubbleModifier)
             {
                 case BubbleMods.Bloody:
-                break;
+                    plaque.sprite = plaqueSprites[0];
+                    break;
                 case BubbleMods.TimeBubble:
-                break;
+                    plaque.sprite = plaqueSprites[1];
+                    break;
                 case BubbleMods.Paralyzing:
-                break;
+                    plaque.sprite = plaqueSprites[2];
+                    break;
 
             }
 
