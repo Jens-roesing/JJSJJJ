@@ -3,15 +3,16 @@ using UnityEngine;
 public class creditController : MonoBehaviour
 {
     [SerializeField]
-    Animation CreditsRollAnim;
+    Animator CreditsRollAnim;
     public void ToggleOn()
     {
         transform.gameObject.SetActive(true);
-        CreditsRollAnim.Play();
+        CreditsRollAnim.SetBool("Playing", true);
     }
 
     public void ToggleOff()
     {
         transform.gameObject.SetActive(false);
+        CreditsRollAnim.SetBool("Playing", false);
     }
 }
