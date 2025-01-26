@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class KrakenManager : MonoBehaviour
@@ -9,6 +10,13 @@ public class KrakenManager : MonoBehaviour
     void Start()
     {
         audioManager = AudioManager.GetInstance();
+        GameManager.GetInstance().NewGameState.AddListener(HandleGameState);
+    }
+
+    private void HandleGameState(GameManager.GameState state)
+    {
+        if (state == GameManager.GameState.Win)
+            PlayDeathAnimation();
     }
 
     [ContextMenu("PlayDmgAnimation")]
@@ -22,5 +30,6 @@ public class KrakenManager : MonoBehaviour
     private void PlayDeathAnimation()
     {
         animator.SetBool("Death", true);
+        audioManager.PlayKrakenDeathSound();
     }
 }

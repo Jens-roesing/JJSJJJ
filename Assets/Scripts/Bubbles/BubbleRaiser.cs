@@ -73,7 +73,8 @@ public class BubbleRaiser : MonoBehaviour
         while (timer < 1)
         {
             timer += Time.deltaTime * animSpeed;
-            curbBubble.transform.localPosition = Vector3.Lerp(startPosition, targetPosition, timer);
+            if (curbBubble != null)
+                curbBubble.transform.localPosition = Vector3.Lerp(startPosition, targetPosition, timer);
             yield return null;
         }
         yield return null;
