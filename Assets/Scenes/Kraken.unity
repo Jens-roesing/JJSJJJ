@@ -1479,10 +1479,6 @@ PrefabInstance:
       propertyPath: _bubbleManager
       value: 
       objectReference: {fileID: 474768242}
-    - target: {fileID: 3007757315628796650, guid: 22b16c5aed74f69408b724968af10606, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
