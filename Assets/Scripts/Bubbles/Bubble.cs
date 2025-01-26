@@ -111,7 +111,7 @@ public class Bubble : MonoBehaviour
         bool raise = false;
         raise = BubbleManager.Instance.Bubbles[BubblePos.x, Mathf.Clamp(BubblePos.y + 1, 0, BubbleManager.Instance.Columns - 1)] == null;
 
-        Debug.Log($"Needs Raise ({raise}): X{BubblePos.x} Y{BubblePos.y}");
+        //Debug.Log($"Needs Raise ({raise}): X{BubblePos.x} Y{BubblePos.y}");
 
         return raise;
     }
