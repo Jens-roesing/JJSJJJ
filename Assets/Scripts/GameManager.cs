@@ -5,7 +5,7 @@ public class GameManager : MonoBehaviour
 {
     private static GameManager instance;
 
-    public static float MAX_GAMETIME { get; private set; } = 180; //seconds
+    public static float MAX_GAMETIME { get; private set; } = 30; //seconds
     public GameState State { get; private set; }
     public UnityEvent<GameState> NewGameState = new UnityEvent<GameState>();
     public float Timer { get; private set; }
