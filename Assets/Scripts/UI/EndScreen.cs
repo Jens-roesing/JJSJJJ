@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class EndScreen : MonoBehaviour
 {
     [SerializeField] private Animation _loseAnimation;
+    [SerializeField] private Animator _chestAnimation;
     [SerializeField] private TextMeshProUGUI loseText;
     [SerializeField] private TextMeshProUGUI winText;
 
@@ -34,6 +35,7 @@ public class EndScreen : MonoBehaviour
     private void ShowWinScreen()
     {
         Debug.Log("Show Lose Screen");
+        _chestAnimation.SetTrigger("Open");
         winText.gameObject.SetActive(true);
         StartCoroutine(RestartGame(5f));
     }
