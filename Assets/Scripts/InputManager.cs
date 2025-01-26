@@ -37,10 +37,17 @@ public class InputManager : MonoBehaviour
                         Debug.Log("Boop");
                         lineRenderer.positionCount++;
                         Vector3 LRPos = hitBubble.transform.position;
-                        LRPos.z += 1f;
                         lineRenderer.SetPosition(manCounter, LRPos);
                         manCounter++;
                     }
+            }
+        }
+        if (lineRenderer.positionCount > 0)
+        {
+            for (int i = 0; i < BubbleManager.Instance.ActiveBubbles.Count; i++)
+            {
+                lineRenderer.SetPosition(i, BubbleManager.Instance.ActiveBubbles[i].transform.GetChild(0).position);
+
             }
         }
         if (HasBeenPressed && !mouse.leftButton.isPressed)

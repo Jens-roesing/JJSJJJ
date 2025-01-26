@@ -29,7 +29,8 @@ public class BubbleManager : MonoBehaviour
 
     public Bubble[,] Bubbles;
 
-    private List<Bubble> ActiveBubbles = new();
+    public List<Bubble> ActiveBubbles = new();
+
 
     public static BubbleManager Instance { get; private set; }
     public float DistanceMod { get => distanceMod; }
