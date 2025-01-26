@@ -339,8 +339,8 @@ MonoBehaviour:
   Spawner: {fileID: 435471954}
   Raiser: {fileID: 556550786}
   Analyzer: {fileID: 556550787}
-  BubbleRows: 5
-  BubbleColumns: 4
+  BubbleRows: 8
+  BubbleColumns: 5
   distanceMod: 1
   AddedTime: 5
 --- !u!4 &556550784

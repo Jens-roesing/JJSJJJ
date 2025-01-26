@@ -231,7 +231,7 @@ Transform:
   m_Children:
   - {fileID: 8143324326290041913}
   m_Father: {fileID: 2489294013023562092}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 1.0052919}
 --- !u!114 &136331884055909173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -253,7 +253,7 @@ Animation:
   m_GameObject: {fileID: 7861583017240787602}
   m_Enabled: 1
   serializedVersion: 4
-  m_Animation: {fileID: 0}
+  m_Animation: {fileID: 7400000, guid: 08cefb79adfe7ea998bfee88d34bac82, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: 08cefb79adfe7ea998bfee88d34bac82, type: 2}
   m_WrapMode: 0
