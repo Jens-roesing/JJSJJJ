@@ -49,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1256995125139344029}
   tentacle: {fileID: 5568011418579071165}
+  inkDelay: 1.75
 --- !u!1001 &2388471401027510954
 PrefabInstance:
   m_ObjectHideFlags: 0
