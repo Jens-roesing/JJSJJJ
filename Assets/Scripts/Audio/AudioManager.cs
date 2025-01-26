@@ -15,6 +15,10 @@ public class AudioManager : MonoBehaviour
     private bool _menuOpen;
     private int testDing;
 
+    [SerializeField] private AudioSource _krakenSource;
+    [SerializeField] private AudioClip[] _krakendmgSounds;
+    [SerializeField] private AudioSource _krakenDeath;
+
     public enum MusicIntensity
     {
         Normal = 0,
@@ -98,6 +102,17 @@ public class AudioManager : MonoBehaviour
         }
 
         yield return null;
+    }
+
+    public void PlayKrakenDMGSound()
+    {
+        _krakenSource.clip = _krakendmgSounds[Random.Range(0, _krakendmgSounds.Length)];
+        _krakenSource.Play();
+    }
+
+    public void PlayKrakenDeathSound()
+    {
+        _krakenDeath.Play();
     }
 
     public void SetMusicIntensity(MusicIntensity musicIntensity)
