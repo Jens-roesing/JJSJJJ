@@ -89,6 +89,7 @@ public class AudioManager : MonoBehaviour
 
     public IEnumerator PlayBubblePopSounds(int bubbleCount)
     {
+        yield break;
         int soundIndex = 0;
         for (int i = 0; i < bubbleCount; i++)
         {
@@ -97,6 +98,7 @@ public class AudioManager : MonoBehaviour
                 soundIndex++;
             else
                 soundIndex = 0;
+
             Debug.Log("Sound: " + soundIndex);
             _bubbleEffects.PlayOneShot(_bubbleClips[soundIndex]);
         }
