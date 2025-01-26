@@ -11,12 +11,14 @@ public class KrakenManager : MonoBehaviour
         audioManager = AudioManager.GetInstance();
     }
 
+    [ContextMenu("PlayDmgAnimation")]
     private void PlayDmgAnimation()
     {
         animator.SetTrigger("Damage");
         audioManager.PlayKrakenDMGSound();
     }
 
+    [ContextMenu("PlayDeathAnimation")]
     private void PlayDeathAnimation()
     {
         animator.SetBool("Death", true);
