@@ -47,6 +47,23 @@ public class BubbleManager : MonoBehaviour
             Instance = this;
     }
 
+    private void Start()
+    {
+        GameManager.GetInstance().NewGameState.AddListener(HandleEnd);
+    }
+
+    private void HandleEnd(GameManager.GameState state)
+    {
+        if (state == GameManager.GameState.Lose || state == GameManager.GameState.Win)
+        {
+            for (int i = 0; i < ActiveBubbles.Count; i++)
+            {
+                ActiveBubbles[i].gameObject.SetActive(false);
+            }
+            gameObject.SetActive(false);
+        }
+    }
+
     [ContextMenu("Start Game")]
     public void StartGame()
     {
