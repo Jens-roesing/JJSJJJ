@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 public enum BubbleColour
@@ -20,11 +21,13 @@ public enum BubbleMods
 public class Bubble : MonoBehaviour
 {
     private const int MODRARITY = 10;
+    private const float POP_ANIM_SPEED = 0.05f;
     [SerializeField]
     SpriteRenderer mySprite;
     [SerializeField]
     Camera ViewCam;
     private bool isChosen;
+    [SerializeField] private Sprite[] _popSprites;
     public BubbleColour bubbleColour;
     public Vector2Int BubblePos;
     public SpriteRenderer Sprite => mySprite;
@@ -104,7 +107,7 @@ public class Bubble : MonoBehaviour
     public bool CheckAboveForEmpty()
     {
         bool raise = false;
-        raise = BubbleManager.Instance.Bubbles[BubblePos.x, Mathf.Clamp(BubblePos.y + 1, 0, BubbleManager.Instance.Columns)] == null;
+        raise = BubbleManager.Instance.Bubbles[BubblePos.x, Mathf.Clamp(BubblePos.y + 1, 0, BubbleManager.Instance.Columns - 1)] == null;
 
         Debug.Log($"Needs Raise ({raise}): X{BubblePos.x} Y{BubblePos.y}");
 
@@ -117,14 +120,21 @@ public class Bubble : MonoBehaviour
     public void PopCheck()
     {
         if (isChosen)
-            //TODO: Play Animation and have that triggers the Pop command.
-            transform.GetChild(0).GetChild(0).GetComponent<Animation>().Play();
+            StartCoroutine(Pop());
 
     }
-    public void Pop()
+
+    public IEnumerator Pop()
     {
+        for (int i = 0; i < _popSprites.Length; i++)
+        {
+            yield return new WaitForSeconds(POP_ANIM_SPEED);
+            mySprite.sprite = _popSprites[i];
+        }
+
         BubbleManager.Instance.Bubbles[BubblePos.x, BubblePos.y] = null;
         Destroy(gameObject);
+        yield return null;
     }
 
     private void Update()
