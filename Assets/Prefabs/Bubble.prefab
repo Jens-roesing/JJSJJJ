@@ -81,7 +81,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.5, y: 0.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
@@ -256,9 +256,9 @@ MonoBehaviour:
   mySprite: {fileID: 6866958164781619045}
   ViewCam: {fileID: 0}
   plaqueSprites:
-  - {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 21300000, guid: 54b8b7e595bc543a09476331602a6b42, type: 3}
+  - {fileID: 21300000, guid: 1596e356d63f715c5800fc5fd729ce1f, type: 3}
+  - {fileID: 21300000, guid: 6188ba7ee4ad1002fbb8ff5dfa2b70eb, type: 3}
+  - {fileID: 21300000, guid: 38e07771607b180579afbcee2a7701af, type: 3}
   _popSprites:
   - {fileID: 21300000, guid: c158b65ef57d13591874a8b6613b922d, type: 3}
   - {fileID: 21300000, guid: a2f83db6026234076a1dcc94aca62e6d, type: 3}
