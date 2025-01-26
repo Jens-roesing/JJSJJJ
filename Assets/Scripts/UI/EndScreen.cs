@@ -21,7 +21,7 @@ public class EndScreen : MonoBehaviour
             ShowLoseScreen();
 
         if (State == GameManager.GameState.Win)
-            ShowLoseScreen();
+            ShowWinScreen();
     }
 
     private void ShowLoseScreen()
