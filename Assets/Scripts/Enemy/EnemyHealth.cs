@@ -60,6 +60,7 @@ public class EnemyHealth : MonoBehaviour
     {
         Mathf.Clamp(lifePoints -= amount, 0, MAX_LIFEPOINTS);
         UpdateUI();
+        AudioManager.GetInstance().PlayKrakenDMGSound();
 
         return lifePoints <= 0;
     }

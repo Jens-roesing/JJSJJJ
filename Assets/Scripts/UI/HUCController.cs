@@ -19,7 +19,7 @@ public class HUCController : MonoBehaviour
         if (state == GameManager.GameState.Playing)
             _container.SetActive(true);
 
-        if (state == GameManager.GameState.Pause)
+        if (state == GameManager.GameState.Pause || state == GameManager.GameState.Win || state == GameManager.GameState.Lose)
             _container.SetActive(false);
     }
 

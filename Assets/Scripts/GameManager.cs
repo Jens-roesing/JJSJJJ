@@ -41,6 +41,12 @@ public class GameManager : MonoBehaviour
         if (State == GameState.Playing)
         {
             Timer += Time.deltaTime;
+
+            if (Timer > MAX_GAMETIME && EnemyHealth.GetInstance().lifePoints > 0)
+                SetGameState(GameState.Lose);
+
+            if (Timer < MAX_GAMETIME && EnemyHealth.GetInstance().lifePoints <= 0)
+                SetGameState(GameState.Win);
         }
     }
 

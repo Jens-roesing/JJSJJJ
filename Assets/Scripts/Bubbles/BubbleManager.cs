@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BubbleManager : MonoBehaviour
 {
-    private const float RAISE_DELAY = 0.4f;
+    private const float RAISE_DELAY = 0.5f;
 
     [SerializeField]
     Camera ViewCam;
@@ -60,8 +60,6 @@ public class BubbleManager : MonoBehaviour
 
         if (p_bubbleInQuestion.BubbleModifier == BubbleMods.Inked)
             return false;
-        // Debug.Log("Bubble " + bubblePos + " Requests a check");
-        //Check if Bubble is either first or neighbour to the previous hit one.
         if (ActiveBubbles.Count != 0)
         {
             if (ActiveBubbles.Last().bubbleColour != p_bubbleInQuestion.bubbleColour)
@@ -101,6 +99,7 @@ public class BubbleManager : MonoBehaviour
     {
         if (ActiveBubbles.Count == 0)
             return;
+        StartCoroutine(AudioManager.GetInstance().PlayBubblePopSounds(ActiveBubbles.Count));
         Analyzer.CalculateResults(ActiveBubbles.Count, BloodyBubbles);
         BloodyBubbles = 0;
         for (int i = 0; i < ActiveBubbles.Count; i++)

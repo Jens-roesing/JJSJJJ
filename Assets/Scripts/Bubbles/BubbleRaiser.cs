@@ -59,7 +59,8 @@ public class BubbleRaiser : MonoBehaviour
 
         foreach (Bubble bubble in BubblesAnimations.Keys)
         {
-            StartCoroutine(MoveBubble(bubble, BubblesAnimations[bubble]));
+            if (bubble != null)
+                StartCoroutine(MoveBubble(bubble, BubblesAnimations[bubble]));
         }
 
         count = 0;
@@ -68,7 +69,6 @@ public class BubbleRaiser : MonoBehaviour
     private IEnumerator MoveBubble(Bubble curbBubble, Vector3 targetPosition)
     {
         Vector3 startPosition = curbBubble.transform.localPosition;
-        Vector3 targetPositionOld = new Vector3(curbBubble.transform.localPosition.x, curbBubble.transform.localPosition.y + BubbleManager.Instance.DistanceMod, curbBubble.transform.localPosition.z);
         float timer = 0;
         while (timer < 1)
         {

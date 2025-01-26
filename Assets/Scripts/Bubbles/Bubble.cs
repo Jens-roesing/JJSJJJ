@@ -86,8 +86,7 @@ public class Bubble : MonoBehaviour
     public void ActivationHandler(bool _mode)
     {
         isChosen = _mode;
-
-        Debug.Log("Added Bubble: " + BubblePos);
+;
         mySprite.color = Color.cyan;
         if (AudioManager.GetInstance())
             AudioManager.GetInstance().PlaySelectSound(BubbleManager.Instance.SelectedBubbles);
