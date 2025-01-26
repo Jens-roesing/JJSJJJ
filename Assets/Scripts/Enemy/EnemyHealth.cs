@@ -41,7 +41,7 @@ public class EnemyHealth : MonoBehaviour
         if (state == GameManager.GameState.Playing)
             _healthBarParent.SetActive(true);
 
-        if (state == GameManager.GameState.Pause)
+        if (state == GameManager.GameState.Pause || state == GameManager.GameState.Win || state == GameManager.GameState.Lose)
             _healthBarParent.SetActive(false);
     }
 

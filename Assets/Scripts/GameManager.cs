@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
 
     public void AddAir(float addedTime)
     {
-        Timer -= addedTime;
+        Mathf.Clamp(Timer -= addedTime, 0, float.MaxValue);
 
     }
     public void SetGameState(GameState newGameState)
