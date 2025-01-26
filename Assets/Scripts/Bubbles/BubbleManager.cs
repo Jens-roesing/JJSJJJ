@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class BubbleManager : MonoBehaviour
 {
+    private const float RAISE_DELAY = 0.4f;
+
     [SerializeField]
     Camera ViewCam;
     [SerializeField]
@@ -107,7 +109,7 @@ public class BubbleManager : MonoBehaviour
 
     private IEnumerator Delay()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(RAISE_DELAY);
 
         ActiveBubbles.Clear();
 
