@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class BubbleManager : MonoBehaviour
@@ -18,6 +17,12 @@ public class BubbleManager : MonoBehaviour
     [SerializeField] private int BubbleRows = 0;
     [SerializeField] private int BubbleColumns = 0;
     [SerializeField] private float distanceMod = 1.0f;
+
+
+    [SerializeField]
+    private float AddedTime = 5.0f;
+
+
 
 
     public Bubble[,] Bubbles;
@@ -69,6 +74,7 @@ public class BubbleManager : MonoBehaviour
                         break;
                     case BubbleMods.TimeBubble:
                         //Add amount of extra time 
+                        GameManager.GetInstance().AddAir(AddedTime);
                         break;
                     case BubbleMods.Paralyzing:
                         //Impede Boss actions
@@ -114,4 +120,22 @@ public class BubbleManager : MonoBehaviour
         Raiser.RaiseBubbles();
         Spawner.FillUpBubbles(ViewCam);
     }
+
+    public void MassInk(Vector2 topLeft, Vector2 topRight)
+    {
+        for (int x = (int)topLeft.x; x < topRight.x; x++)
+            for (int y = (int)topLeft.y; y < topRight.y; y++)
+            {
+                Bubbles[x, y].Inkify();
+            }
+
+    }
+    public void InkSplatter(int amount)
+    { 
+        for (int i = 0; i < amount; i++)
+        {
+            Bubbles[Random.Range(0, BubbleRows), Random.Range(0, BubbleColumns)].Inkify();
+        }
+    }
+
 }
