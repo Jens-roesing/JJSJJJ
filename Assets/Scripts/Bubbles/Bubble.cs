@@ -22,6 +22,10 @@ public class Bubble : MonoBehaviour
 {
     private const int MODRARITY = 10;
     private const float POP_ANIM_SPEED = 0.05f;
+
+
+    [SerializeField]
+    SpriteRenderer plaque;
     [SerializeField]
     SpriteRenderer mySprite;
     [SerializeField]
@@ -55,12 +59,10 @@ public class Bubble : MonoBehaviour
         BubbleModifier = (BubbleMods)ModId - (MODRARITY + 1);
         if (BubbleModifier != BubbleMods.None)
         {
-            SpriteRenderer plaque = Instantiate(new GameObject()).AddComponent<SpriteRenderer>();
-            plaque.transform.SetParent(transform.GetChild(0).GetChild(0));
+            
             switch (BubbleModifier)
             {
                 case BubbleMods.Bloody:
-                
                 break;
                 case BubbleMods.TimeBubble:
                 break;

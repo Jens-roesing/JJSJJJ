@@ -56,13 +56,14 @@ public class BubbleManager : MonoBehaviour
 
     public bool BubbleUpdateRequest(Bubble p_bubbleInQuestion)
     {
+
+        if (p_bubbleInQuestion.BubbleModifier == BubbleMods.Inked)
+            return false;
         // Debug.Log("Bubble " + bubblePos + " Requests a check");
         //Check if Bubble is either first or neighbour to the previous hit one.
         if (ActiveBubbles.Count != 0)
         {
             if (ActiveBubbles.Last().bubbleColour != p_bubbleInQuestion.bubbleColour)
-                return false;
-            if (p_bubbleInQuestion.BubbleModifier == BubbleMods.Inked)
                 return false;
             Vector2Int oldPos = ActiveBubbles.Last().BubblePos;
             if (Vector2.Distance(oldPos, p_bubbleInQuestion.BubblePos) <= 1.5f)
@@ -75,11 +76,12 @@ public class BubbleManager : MonoBehaviour
                         BloodyBubbles++;
                         break;
                     case BubbleMods.TimeBubble:
-                        //Add amount of extra time 
+                        //Add amount of extra time
                         GameManager.GetInstance().AddAir(AddedTime);
                         break;
                     case BubbleMods.Paralyzing:
                         //Impede Boss actions
+                        // AttackTimer--;
                         break;
 
                 }
@@ -96,7 +98,8 @@ public class BubbleManager : MonoBehaviour
 
     public void ResultCheck()
     {
-
+        if (ActiveBubbles.Count == 0)
+            return;
         Analyzer.CalculateResults(ActiveBubbles.Count, BloodyBubbles);
         BloodyBubbles = 0;
         for (int i = 0; i < ActiveBubbles.Count; i++)
@@ -121,19 +124,26 @@ public class BubbleManager : MonoBehaviour
     {
         Raiser.RaiseBubbles();
         Spawner.FillUpBubbles(ViewCam);
+        // AttackTimer++;
+        // if (AttackTimer >= AttackTimerMax)
+        // {
+        //     AttackTimer = 0;
+
+        //     InkSplatter(SplotAmount);
+        // }
     }
 
-    public void MassInk(Vector2 topLeft, Vector2 topRight)
+    public void MassInk(Vector2 bottomLeft, Vector2 topRight)
     {
-        for (int x = (int)topLeft.x; x < topRight.x; x++)
-            for (int y = (int)topLeft.y; y < topRight.y; y++)
+        for (int x = (int)bottomLeft.x; x < topRight.x; x++)
+            for (int y = (int)bottomLeft.y; y < topRight.y; y++)
             {
                 Bubbles[x, y].Inkify();
             }
 
     }
     public void InkSplatter(int amount)
-    { 
+    {
         for (int i = 0; i < amount; i++)
         {
             Bubbles[Random.Range(0, BubbleRows), Random.Range(0, BubbleColumns)].Inkify();
