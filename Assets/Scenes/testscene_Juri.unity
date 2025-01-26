@@ -339,9 +339,10 @@ MonoBehaviour:
   Spawner: {fileID: 435471954}
   Raiser: {fileID: 556550786}
   Analyzer: {fileID: 556550787}
-  BubbleRows: 20
-  BubbleColumns: 10
+  BubbleRows: 5
+  BubbleColumns: 4
   distanceMod: 1
+  AddedTime: 5
 --- !u!4 &556550784
 Transform:
   m_ObjectHideFlags: 0

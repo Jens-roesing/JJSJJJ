@@ -168,6 +168,7 @@ MonoBehaviour:
   ViewCam: {fileID: 0}
   bubbleColour: 0
   BubblePos: {x: 0, y: 0}
+  BubbleModifier: 0
 --- !u!135 &5213362956822986582
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -198,6 +199,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7299842065988442955}
+  - component: {fileID: 136331884055909173}
+  - component: {fileID: 6378590703684767778}
   m_Layer: 0
   m_Name: Graphics
   m_TagString: Untagged
@@ -221,3 +224,32 @@ Transform:
   - {fileID: 8143324326290041913}
   m_Father: {fileID: 2489294013023562092}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &136331884055909173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7861583017240787602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 199444cfe10add657915b8f8c36a5a18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!111 &6378590703684767778
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7861583017240787602}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 08cefb79adfe7ea998bfee88d34bac82, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_UpdateMode: 0
+  m_CullingType: 0
