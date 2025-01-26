@@ -99,7 +99,7 @@ public class BubbleManager : MonoBehaviour
     {
         if (ActiveBubbles.Count == 0)
             return;
-        AudioManager.GetInstance().PlayBubblePopSounds(ActiveBubbles.Count);
+        StartCoroutine(AudioManager.GetInstance().PlayBubblePopSounds(ActiveBubbles.Count));
         Analyzer.CalculateResults(ActiveBubbles.Count, BloodyBubbles);
         BloodyBubbles = 0;
         for (int i = 0; i < ActiveBubbles.Count; i++)
