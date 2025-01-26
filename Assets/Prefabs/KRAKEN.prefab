@@ -1,5 +1,61 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &476919125426473089
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2454703382767997264}
+  - component: {fileID: 6026946476356543413}
+  m_Layer: 0
+  m_Name: Tentacles
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2454703382767997264
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 476919125426473089}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -11.94, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5444524461732278368}
+  - {fileID: 5671304053441218976}
+  m_Father: {fileID: 3794068252060300000}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &6026946476356543413
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 476919125426473089}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 770a8a05d117a9d48b85d0580831be9a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6471343321688515400
 GameObject:
   m_ObjectHideFlags: 0
@@ -31,8 +87,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5926011223747846790}
-  - {fileID: 5444524461732278368}
-  - {fileID: 5671304053441218976}
+  - {fileID: 2454703382767997264}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2226534987525951537
@@ -47,6 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e61577a61543e544fa05d45e8c7580af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _tentacleUpDownAni: {fileID: 6026946476356543413}
   animator: {fileID: 1256995125139344029}
   tentacle: {fileID: 5568011418579071165}
   inkDelay: 1.75
@@ -152,11 +208,11 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 3794068252060300000}
+    m_TransformParent: {fileID: 2454703382767997264}
     m_Modifications:
     - target: {fileID: 3714252589582087343, guid: d12f9d97c63236d4ea4619b442870a9b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.62877
+      value: 0.6287699
       objectReference: {fileID: 0}
     - target: {fileID: 3714252589582087343, guid: d12f9d97c63236d4ea4619b442870a9b, type: 3}
       propertyPath: m_LocalScale.y
@@ -164,7 +220,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3714252589582087343, guid: d12f9d97c63236d4ea4619b442870a9b, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.62877
+      value: 0.62876993
       objectReference: {fileID: 0}
     - target: {fileID: 3714252589582087343, guid: d12f9d97c63236d4ea4619b442870a9b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -256,7 +312,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 3794068252060300000}
+    m_TransformParent: {fileID: 2454703382767997264}
     m_Modifications:
     - target: {fileID: 3714252589582087343, guid: d12f9d97c63236d4ea4619b442870a9b, type: 3}
       propertyPath: m_LocalPosition.x

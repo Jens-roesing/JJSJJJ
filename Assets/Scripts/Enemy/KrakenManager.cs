@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class KrakenManager : MonoBehaviour
 {
+    [SerializeField] private Animator _tentacleUpDownAni;
     [SerializeField] private Animator animator;
     [SerializeField] private Animator tentacle;
     [SerializeField] private float inkDelay = 2f;
@@ -58,6 +59,7 @@ public class KrakenManager : MonoBehaviour
     private void PlayDeathAnimation()
     {
         animator.SetBool("Death", true);
+        _tentacleUpDownAni.SetTrigger("Down");
         audioManager.PlayKrakenDeathSound();
     }
 }
