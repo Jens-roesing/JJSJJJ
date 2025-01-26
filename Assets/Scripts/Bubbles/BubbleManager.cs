@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BubbleManager : MonoBehaviour
 {
-    private const float RAISE_DELAY = 0.4f;
+    private const float RAISE_DELAY = 0.5f;
 
     [SerializeField]
     Camera ViewCam;
