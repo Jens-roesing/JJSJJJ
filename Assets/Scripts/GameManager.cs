@@ -44,6 +44,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void AddAir(float addedTime)
+    {
+        Timer -= addedTime;
+
+    }
     public void SetGameState(GameState newGameState)
     {
         State = newGameState;

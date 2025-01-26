@@ -61,8 +61,20 @@ public class BubbleManager : MonoBehaviour
             if (Vector2.Distance(oldPos, p_bubbleInQuestion.BubblePos) <= 1.5f)
             {
                 ActiveBubbles.Add(Bubbles[p_bubbleInQuestion.BubblePos.x, p_bubbleInQuestion.BubblePos.y]);
-                if(p_bubbleInQuestion.BubbleModifier == BubbleMods.Bloody)
-                    BloodyBubbles++;
+
+                switch (p_bubbleInQuestion.BubbleModifier)
+                {
+                    case BubbleMods.Bloody:
+                        BloodyBubbles++;
+                        break;
+                    case BubbleMods.TimeBubble:
+                        //Add amount of extra time 
+                        break;
+                    case BubbleMods.Paralyzing:
+                        //Impede Boss actions
+                        break;
+
+                }
 
                 return true;
             }
